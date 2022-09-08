@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:wallpaper_manager/wallpaper_manager.dart';
+import 'package:flutter_wallpaper_manager/flutter_wallpaper_manager.dart';
 import "dart:io";
 
 class FullScreen extends StatefulWidget {
@@ -16,9 +16,9 @@ class FullScreen extends StatefulWidget {
 class _FullScreenState extends State<FullScreen> {
 
   Future<void> setwallpaper() async {
-    int location = WallpaperManager.HOME_SCREEN;
+    int location = WallpaperManager.BOTH_SCREEN;
     var file = await DefaultCacheManager().getSingleFile(widget.imageurl);
-    final String result = await WallpaperManager.setWallpaperFromFile(file.path, location);
+    final bool result = await WallpaperManager.setWallpaperFromFile(file.path, location);
 
   }
 
